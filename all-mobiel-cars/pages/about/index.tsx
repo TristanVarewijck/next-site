@@ -1,16 +1,17 @@
 import Head from "next/head";
 import Link from "next/link";
+import Layout from "../../components/Layout";
 
 const About = () => {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Over ons</title>
       </Head>
 
       <h1 className="title">About</h1>
       <Link href="/">back to dashboard</Link>
-    </div>
+    </Layout>
   );
 };
 

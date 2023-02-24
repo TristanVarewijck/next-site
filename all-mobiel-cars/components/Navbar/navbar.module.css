@@ -1,0 +1,39 @@
+.navbarPromotion ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: red;
+}
+
+.navbarPromotion > ul{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbarPromotion > ul li{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbarPromotion > ul li div{
+    height: 30px;
+    width: 30px;
+    background: red;
+    border-radius: 50%;
+    border: 2.80114px solid #FFFFFF;
+
+}
+
+.navbarPromotion > ul > li:last-of-type ul {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+.editNavbarCollapse{
+    justify-content: space-between;
+}

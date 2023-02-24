@@ -8,6 +8,7 @@ const Contact = () => {
         <title>Contact</title>
       </Head>
       <h1 className="title">Contact</h1>
+      <a>Hello</a>
       <Link href="/">back to dashboard</Link>
     </div>
   );

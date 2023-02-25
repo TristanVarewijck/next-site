@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import Layout from "../../components/Layout";
 
 const Contact = () => {
@@ -8,8 +7,9 @@ const Contact = () => {
       <Head>
         <title>Contact</title>
       </Head>
-      <h1 className="title">Contact</h1>
-      <Link href="/">back to dashboard</Link>
+      <section>
+        <h1 className="title">Contact</h1>
+      </section>
     </Layout>
   );
 };

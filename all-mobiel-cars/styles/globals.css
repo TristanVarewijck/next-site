@@ -90,9 +90,14 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--brand-font-style) !important;
-  background-color: var(--brand-color-gray);
+  background-color: var(--brand-color-gray) !important;
 }
 
 h1{
   font-weight: 700 !important;
+}
+
+section{
+  margin-top: 50px;
+  margin-bottom: 50px;
 }

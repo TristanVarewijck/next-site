@@ -1,16 +1,16 @@
 import Head from "next/head";
 import Link from "next/link";
+import Layout from "../../components/Layout";
 
 const Contact = () => {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Contact</title>
       </Head>
       <h1 className="title">Contact</h1>
-      <a>Hello</a>
       <Link href="/">back to dashboard</Link>
-    </div>
+    </Layout>
   );
 };
 

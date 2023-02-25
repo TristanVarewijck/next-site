@@ -1,150 +1,170 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./navbar.module.css";
+import { Check, Instagram, Facebook, Youtube } from "react-feather";
 
 const Navbar = () => {
   return (
-    <>
+    <div className={styles.editNavContainer}>
       <div className={styles.navbarPromotion}>
-        <ul>
+        <ul className="container">
           <li>
-            Rating <div></div>
+            Klanttevredenheid
+            <Link href="">
+              <div>
+                <p className="external-rating">9.2</p>
+              </div>
+            </Link>
           </li>
           <li>
-            Expert in elk auto merk <div></div>
+            Expert in elk auto merk
+            <div>
+              <Check size={18} />
+            </div>
           </li>
           <li>
-            Snelle service <div></div>
+            Snelle service
+            <div>
+              <Check size={18} />
+            </div>
           </li>
           <li>
             Socials
             <ul>
               <li>
                 <Link href="#">
-                  <div></div>
+                  <div>
+                    <Instagram size={18} />
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="#">
-                  <div></div>
+                  <div>
+                    <Facebook size={18} />
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="#">
-                  <div></div>
+                  <div>
+                    <Youtube size={18} />
+                  </div>
                 </Link>
               </li>
             </ul>
           </li>
         </ul>
       </div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link className="navbar-brand" href="/">
-          <Image
-            src="/images/logo.jpg"
-            width="100"
-            height="30"
-            className="d-inline-block align-top"
-            alt="all mobiel cars logo SVG"
-          />
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarText"
-          aria-controls="navbarText"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+      <div className="container">
+        <nav className="navbar navbar-expand-lg">
+          <Link className="navbar-brand" href="/">
+            <Image
+              src="/images/logo.jpg"
+              width="186"
+              height="45"
+              className="d-inline-block align-top"
+              alt="all mobiel cars logo SVG"
+            />
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
 
-        <div
-          className={`collapse navbar-collapse ${styles.editNavbarCollapse}`}
-          id="navbarText"
-        >
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownMenuLink"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Diensten
-              </Link>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <Link className="dropdown-item" href="#">
+          <div
+            className={`collapse navbar-collapse ${styles.editNavbarCollapse}`}
+            id="navbarText"
+          >
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Diensten
+                </Link>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <Link className="dropdown-item" href="#">
+                    APK
+                  </Link>
+                  <Link className="dropdown-item" href="#">
+                    Onderhoud
+                  </Link>
+                  <Link className="dropdown-item" href="#">
+                    Schadeherstel
+                  </Link>
+                  <Link className="dropdown-item" href="#">
+                    Leasen
+                  </Link>
+                  <Link className="dropdown-item" href="#">
+                    Bandenverkoop
+                  </Link>
+                </div>
+              </li>
+              <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Occasions
+                </Link>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <Link className="dropdown-item" href="#">
+                    Onze auto's
+                  </Link>
+                  <Link className="dropdown-item" href="#">
+                    Importeren
+                  </Link>
+                  <Link className="dropdown-item" href="#">
+                    Exporteren
+                  </Link>
+                </div>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href="#">
                   APK
                 </Link>
-                <Link className="dropdown-item" href="#">
-                  Onderhoud
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href="#">
+                  Bandenwissel
                 </Link>
-                <Link className="dropdown-item" href="#">
-                  Schadeherstel
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href="/over-ons">
+                  Over ons
                 </Link>
-                <Link className="dropdown-item" href="#">
-                  Leasen
-                </Link>
-                <Link className="dropdown-item" href="#">
-                  Bandenverkoop
-                </Link>
-              </div>
-            </li>
-            <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownMenuLink"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Occasions
-              </Link>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <Link className="dropdown-item" href="#">
-                  Onze auto's
-                </Link>
-                <Link className="dropdown-item" href="#">
-                  Importeren
-                </Link>
-                <Link className="dropdown-item" href="#">
-                  Exporteren
-                </Link>
-              </div>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="#">
-                APK
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="#">
-                Bandenwissel
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="/over-ons">
-                Over ons
-              </Link>
-            </li>
-          </ul>
-          <Link className="btn btn-primary" href="/contact" role="button">
-            Afspraak maken
-          </Link>
-        </div>
-      </nav>
-    </>
+              </li>
+            </ul>
+            <Link className="btn btn-primary" href="/contact" role="button">
+              Afspraak maken
+            </Link>
+          </div>
+        </nav>
+      </div>
+    </div>
   );
 };
 

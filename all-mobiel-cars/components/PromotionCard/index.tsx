@@ -12,7 +12,7 @@ const PromotionCard = ({
   linkHref,
 }: promotionCardProps) => {
   return (
-    <div className="card" style={{ width: "18rem" }} key={uuid}>
+    <div className="card" style={{ width: "25rem" }} key={uuid}>
       <img src={img} className="card-img-top" alt={imgAlt} />
       <div className="card-body">
         <h4 className="card-title">{title}</h4>

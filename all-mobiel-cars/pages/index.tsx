@@ -61,10 +61,16 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="row">
+        <div
+          className="row"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           {cardsContent.map((content) => {
             return (
-              <div className="col-md">
+              <div className="col-md" style={{ display: "flex" }}>
                 <PromotionCard
                   uuid={content.uuid}
                   img={content.img}

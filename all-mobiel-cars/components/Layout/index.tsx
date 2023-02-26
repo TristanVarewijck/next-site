@@ -1,4 +1,4 @@
-import styles from "./layout.module.css";
+import styles from "./layout.module.scss";
 import Navbar from "../Navbar";
 
 const Layout = ({ children }) => {

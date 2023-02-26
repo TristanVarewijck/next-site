@@ -1,3 +1,5 @@
+@import "./bootstrap.scss";
+
 /* normal */
 @font-face {
   font-family: "Uni Sans";
@@ -91,6 +93,7 @@ body {
   margin: 0;
   font-family: var(--brand-font-style) !important;
   background-color: var(--brand-color-gray) !important;
+  color: var(--brand-color-black) !important;
 }
 
 h1{
@@ -100,4 +103,21 @@ h1{
 section{
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.btn{
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-size: 14.5px;
+  &:hover{
+    opacity: .85;
+  }
+}
+
+.btn-primary{
+  color: var(--brand-color-white);
+  font-weight: 600;
+  &:hover{
+    color: var(--brand-color-white);
+  }
 }

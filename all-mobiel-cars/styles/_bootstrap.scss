@@ -1,0 +1,17 @@
+// overwrites
+$theme-colors: (
+  "primary":    #FF2B2A,
+//   "secondary":  $secondary,
+//   "success":    $success,
+//   "info":       $info,
+//   "warning":    $warning,
+//   "danger":     $danger,
+//   "light":      $light,
+//   "dark":       $dark
+);
+
+.btn-primary{
+    color: #fff;
+}
+
+@import '/node_modules/bootstrap/scss/bootstrap.scss';

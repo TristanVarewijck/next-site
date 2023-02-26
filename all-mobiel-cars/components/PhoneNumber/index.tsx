@@ -1,4 +1,4 @@
-import styles from "./phoneNumber.module.css";
+import styles from "./phoneNumber.module.scss";
 
 interface phoneNumberProps {
   text?: string;

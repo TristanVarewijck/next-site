@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./navbar.module.css";
+import styles from "./navbar.module.scss";
 import { Check, Instagram, Facebook, Youtube } from "react-feather";
 
 const Navbar = () => {
@@ -57,7 +57,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="container">
-        <nav className="navbar navbar-expand-lg">
+        <nav className={`navbar navbar-expand-lg ${styles.editNav}`}>
           <Link className="navbar-brand" href="/">
             <Image
               src="/images/logo.jpg"
@@ -158,7 +158,7 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <Link className="btn btn-primary" href="/contact" role="button">
+            <Link className="btn btn-primary " href="/contact" role="button">
               Afspraak maken
             </Link>
           </div>

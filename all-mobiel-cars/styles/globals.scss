@@ -101,8 +101,7 @@ h1{
 }
 
 section{
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
 }
 
 .btn{
@@ -119,5 +118,16 @@ section{
   font-weight: 600;
   &:hover{
     color: var(--brand-color-white);
+  }
+}
+
+.btn-primary-link{
+  padding: 0px;
+  margin: 0px;
+  color: var(--brand-color-red);
+  font-weight: 600;
+
+  &:hover{
+    color: var(--brand-color-red);
   }
 }

@@ -1,10 +1,5 @@
 import styles from "./heading.module.scss";
-
-interface headingProps {
-  titleText: string;
-  subtitleText?: string | null;
-  align: "center" | "left" | "right";
-}
+import { headingProps } from "../../types";
 
 const Heading = ({ titleText, subtitleText, align }: headingProps) => {
   const getAlignStyle = (): string => {
@@ -19,7 +14,7 @@ const Heading = ({ titleText, subtitleText, align }: headingProps) => {
   };
 
   return (
-    <div className={getAlignStyle()} style={{ marginBottom: "40px" }}>
+    <div className={getAlignStyle()} style={{ marginBottom: "35px" }}>
       <h1>{titleText}</h1>
       {subtitleText && <p>{subtitleText}</p>}
     </div>

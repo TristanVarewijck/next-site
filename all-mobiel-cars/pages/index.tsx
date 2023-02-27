@@ -1,3 +1,4 @@
+import styles from "./index.module.scss";
 import Head from "next/head";
 import Layout from "../components/Layout";
 import PhoneNumber from "../components/PhoneNumber";
@@ -219,9 +220,17 @@ const Dashboard = () => {
 
       <section className="about">
         <Heading titleText="Over All Mobiel Cars" align="left" />
-        {aboutArticlesContent.map((content) => {
+        {aboutArticlesContent.map((content, index) => {
           return (
-            <div className="row gx-5 mb-5" key={content.uuid}>
+            <div
+              className="row gx-5 mb-5"
+              key={content.uuid}
+              style={
+                index % 2 == 0
+                  ? { flexDirection: "row-reverse" }
+                  : { flexDirection: "row" }
+              }
+            >
               <div className="col">
                 <TextBlock
                   uuid={content.uuid}

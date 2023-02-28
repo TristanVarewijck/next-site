@@ -1,4 +1,3 @@
-import styles from "./index.module.scss";
 import Head from "next/head";
 import Layout from "../components/Layout";
 import PhoneNumber from "../components/PhoneNumber";
@@ -179,7 +178,7 @@ const Dashboard = () => {
         <div className="row gx-5 mb-5">
           {serviceBlocksContent.map((content) => {
             return (
-              <div className="col-md">
+              <div className="col-md" key={content.uuid}>
                 <ServiceBlock
                   uuid={content.uuid}
                   icon={content.icon}

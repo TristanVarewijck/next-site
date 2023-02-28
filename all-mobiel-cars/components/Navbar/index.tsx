@@ -60,7 +60,7 @@ const Navbar = () => {
         <nav className={`navbar navbar-expand-lg ${styles.editNav}`}>
           <Link className="navbar-brand" href="/">
             <Image
-              src="/images/logo.jpg"
+              src="/images/logo.png"
               width="186"
               height="45"
               className="d-inline-block align-top"

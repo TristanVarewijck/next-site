@@ -1,94 +1,72 @@
+import Link from "next/link";
 import styles from "./footer.module.scss";
 
 const Footer = () => {
   return (
-    <footer className="text-center text-lg-start bg-white text-muted">
-      <section className="">
-        <div className="container text-center text-md-start mt-5">
-          <div className="row mt-3">
-            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">
-                <i className="fas fa-gem me-3 text-secondary"></i>Company name
-              </h6>
+    <footer className={styles.footer}>
+      <div>
+        <div className="container">
+          <div className="row gx-5 gy-5">
+            <div className="col-md">
+              <h6>LOGO</h6>
               <p>
-                Here you can use rows and columns to organize your footer
-                content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit.
+                Bij All Mobiel Cars krijg je snel en vertrouwbaar onderhoud
+                daarnaast hebben we ook andere diensten.
               </p>
+              <Link
+                className="btn btn-primary"
+                href="#!"
+                style={{ width: "100%" }}
+              >
+                Afspraak maken
+              </Link>
             </div>
 
-            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Products</h6>
-              <p>
-                <a href="#!" className="text-reset">
-                  Angular
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  React
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Vue
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Laravel
-                </a>
-              </p>
-            </div>
+            <div className="footer-items-container col-md">
+              <div className="row row gy-5">
+                <div className="col-md">
+                  <h6>Diensten</h6>
+                  <div className={styles.linksContainer}>
+                    <Link href="#!">Bandenverkoop</Link>
+                    <Link href="#!">Schadeherstel</Link>
+                    <Link href="#!">Onderhoud</Link>
+                    <Link href="#!">APK</Link>
+                    <Link href="#!">Leasen</Link>
+                  </div>
+                </div>
 
-            <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
-              <p>
-                <a href="#!" className="text-reset">
-                  Pricing
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Settings
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Orders
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Help
-                </a>
-              </p>
-            </div>
+                <div className="col-md">
+                  <h6>Occasions</h6>
+                  <div className={styles.linksContainer}>
+                    <Link href="#!">Ons aanbod</Link>
+                    <Link href="#!">Importeren</Link>
+                    <Link href="#!">Exporteren</Link>
+                  </div>
+                </div>
 
-            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-              <p>
-                <i className="fas fa-home me-3 text-secondary"></i> New York, NY
-                10012, US
-              </p>
-              <p>
-                <i className="fas fa-envelope me-3 text-secondary"></i>
-                info@example.com
-              </p>
-              <p>
-                <i className="fas fa-phone me-3 text-secondary"></i> + 01 234
-                567 88
-              </p>
-              <p>
-                <i className="fas fa-print me-3 text-secondary"></i> + 01 234
-                567 89
-              </p>
+                <div className="col-md">
+                  <h6>Legal</h6>
+                  <div className={styles.linksContainer}>
+                    <Link href="#!">Terms</Link>
+                    <Link href="#!">Privacy</Link>
+                    <Link href="#!">Cookies</Link>
+                    <Link href="#!">License</Link>
+                  </div>
+                </div>
+
+                <div className="col-md">
+                  <h6>Contact</h6>
+                  <div className={styles.linksContainer}>
+                    <Link href="mailto:">info@allmobielcars.nl</Link>
+                    <Link href="tel:(075) 622 9727">(075) 622 9727</Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-
-      <div className="p-4">©2023 All Mobiel Cars. All rights reserved.</div>
+      </div>
+      <div>©2023 All Mobiel Cars. All rights reserved.</div>
     </footer>
   );
 };

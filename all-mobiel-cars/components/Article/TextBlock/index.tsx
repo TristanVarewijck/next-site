@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./textBlock.module.scss";
-import { textBlockProps } from "../../types";
+import { textBlockProps } from "../../../types";
 import { ArrowRight } from "react-feather";
 
 const TextBlock = ({

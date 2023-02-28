@@ -28,3 +28,8 @@ export interface promotionCardProps {
     linkText?: string;
     linkHref?: string;
   }
+
+  export interface articleProps extends textBlockProps {
+    image: string;
+    index?: number
+  }

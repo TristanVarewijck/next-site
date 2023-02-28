@@ -7,8 +7,8 @@ import { promotionCardProps } from "../types";
 import ServiceBlock from "../components/ServiceBlock";
 import { serviceBlockProps } from "../types";
 import { Check } from "react-feather";
-import TextBlock from "../components/TextBlock";
-import { textBlockProps } from "../types";
+import Article from "../components/Article";
+import { articleProps } from "../types";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -97,7 +97,7 @@ const Dashboard = () => {
     },
   ];
 
-  const aboutArticlesContent: textBlockProps[] = [
+  const aboutArticlesContent: articleProps[] = [
     {
       uuid: "article1",
       title: "Al meer dan 15 jaar doen wij vertrouwdt onderhoud",
@@ -105,6 +105,7 @@ const Dashboard = () => {
       hasLink: true,
       linkText: "Lees meer",
       linkHref: "#",
+      image: "/images/articles/image-1.png",
     },
     {
       uuid: "article2",
@@ -113,6 +114,7 @@ const Dashboard = () => {
       hasLink: true,
       linkText: "Lees meer",
       linkHref: "#",
+      image: "/images/articles/image-2.png",
     },
     {
       uuid: "article3",
@@ -122,6 +124,7 @@ const Dashboard = () => {
       hasLink: true,
       linkText: "Lees meer",
       linkHref: "#",
+      image: "/images/articles/image-3.png",
     },
   ];
 
@@ -135,15 +138,17 @@ const Dashboard = () => {
         <div className="row">
           <div className="col-md">
             <Heading
-              titleText="All-in, All Mobile Cars is de enige garage die je nodig hebt"
-              subtitleText="Bij All Mobile Cars onderhouden wij alles omtrent uw auto, wij
-              doen goedkope en snelle service, omdat wij geloven in goede
-              klantenservice."
-              align="left"
+              titleText={
+                "All-in, All Mobile Cars is de enige garage die je nodig hebt"
+              }
+              subtitleText={
+                "Bij All Mobile Cars onderhouden wij alles omtrent uw auto, wij doen goedkope en snelle service, omdat wij geloven in goede klantenservice."
+              }
+              align={"left"}
             />
           </div>
           <div className="col-md">
-            <PhoneNumber text="Even bellen?" number="(075) 622 9727" />
+            <PhoneNumber text={"Even bellen?"} number={"(075) 622 9727"} />
           </div>
         </div>
 
@@ -171,9 +176,11 @@ const Dashboard = () => {
 
       <section className="services">
         <Heading
-          titleText="Onze diensten"
-          subtitleText="Wij hebben een ruim assortiment aan diensten die u kunnen helpen zie hier beneden een overzicht van onze diensten"
-          align="center"
+          titleText={"Onze diensten"}
+          subtitleText={
+            "Wij hebben een ruim assortiment aan diensten die u kunnen helpen zie hier beneden een overzicht van onze diensten"
+          }
+          align={"center"}
         />
         <div className="row gx-5 mb-5">
           {serviceBlocksContent.map((content) => {
@@ -198,16 +205,18 @@ const Dashboard = () => {
 
       <section className="appointment">
         <Heading
-          titleText="Eenvoudig een afspraak inplannen"
-          subtitleText="Snel en gemakkelijk: selecteer de gewenste dienst en plan uw afspraak!"
-          align="center"
+          titleText={"Eenvoudig een afspraak inplannen"}
+          subtitleText={
+            "Snel en gemakkelijk: selecteer de gewenste dienst en plan uw afspraak!"
+          }
+          align={"center"}
         />
         <div className="position-relative mb-4" style={{ height: "400px" }}>
           <Image
             src={"/images/static/image-4.jpg"}
             alt={"Afspraak maken section image"}
-            layout="fill"
-            objectFit="contain"
+            layout={"fill"}
+            objectFit={"contain"}
           />
         </div>
         <div className="section-link d-flex justify-content-center">
@@ -218,37 +227,19 @@ const Dashboard = () => {
       </section>
 
       <section className="about">
-        <Heading titleText="Over All Mobiel Cars" align="left" />
+        <Heading titleText={"Over All Mobiel Cars"} align={"left"} />
         {aboutArticlesContent.map((content, index) => {
           return (
-            <div
-              className="row gx-5 mb-5"
-              key={content.uuid}
-              style={
-                index % 2 == 0
-                  ? { flexDirection: "row-reverse" }
-                  : { flexDirection: "row" }
-              }
-            >
-              <div className="col">
-                <TextBlock
-                  uuid={content.uuid}
-                  title={content.title}
-                  text={content.text}
-                  hasLink
-                  linkHref="#"
-                  linkText="Lees meer"
-                />
-              </div>
-              <div className="col d-flex align-items-center">
-                <Image
-                  src={"/images/static/image-4.jpg"}
-                  width={100}
-                  height={100}
-                  alt={"Afspraak maken section image"}
-                />
-              </div>
-            </div>
+            <Article
+              uuid={content.uuid}
+              title={content.title}
+              text={content.text}
+              hasLink={content.hasLink}
+              linkHref={content.linkHref}
+              linkText={content.linkText}
+              image={content.image}
+              index={index}
+            />
           );
         })}
       </section>

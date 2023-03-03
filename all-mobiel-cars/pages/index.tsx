@@ -5,13 +5,15 @@ import Heading from "../components/Heading";
 import PromotionCard from "../components/PromotionCard";
 import { promotionCardProps } from "../types";
 import ServiceBlock from "../components/ServiceBlock";
-import { serviceBlockProps } from "../types";
-import { Check } from "react-feather";
 import Article from "../components/Article";
 import Link from "next/link";
 import Image from "next/image";
 
 const Dashboard = ({ articles, services }) => {
+  const lastThreeArticles = articles.data.slice(
+    Math.max(articles.data.length - 3, 0)
+  );
+
   const promotionCardsContent: promotionCardProps[] = [
     {
       uuid: "card1",
@@ -42,57 +44,6 @@ const Dashboard = ({ articles, services }) => {
       hasLink: true,
       linkText: "Zie aanbod",
       linkHref: "#",
-    },
-  ];
-
-  const serviceBlocksContent: serviceBlockProps[] = [
-    {
-      uuid: "auto-onderhoud",
-      icon: <Check />,
-      title: "Auto onderhoud",
-      href: "#",
-    },
-    {
-      uuid: "apk",
-      icon: <Check />,
-      title: "APK",
-      href: "#",
-    },
-    {
-      uuid: "schade-herstel",
-      icon: <Check />,
-      title: "Schade herstel",
-      href: "#",
-    },
-    {
-      uuid: "motor-flushen",
-      icon: <Check />,
-      title: "Motor flushen",
-      href: "#",
-    },
-    {
-      uuid: "bandenwissel",
-      icon: <Check />,
-      title: "Bandenwissel",
-      href: "#",
-    },
-    {
-      uuid: "leasen",
-      icon: <Check />,
-      title: "Leasen",
-      href: "#",
-    },
-    {
-      uuid: "chippen",
-      icon: <Check />,
-      title: "Chippen",
-      href: "#",
-    },
-    {
-      uuid: "schoonmaak",
-      icon: <Check />,
-      title: "Schoonmaak",
-      href: "#",
     },
   ];
 
@@ -151,14 +102,14 @@ const Dashboard = ({ articles, services }) => {
           align={"center"}
         />
         <div className="row gx-5 mb-5">
-          {serviceBlocksContent.map((content) => {
+          {services.data.map((content) => {
+            console.log(content.id);
             return (
               <div className="col-md" key={content.uuid}>
                 <ServiceBlock
-                  uuid={content.uuid}
-                  icon={content.icon}
-                  title={content.title}
-                  href={content.href}
+                  uuid={content.id}
+                  title={content.attributes.title}
+                  href={`services/${content.id}`}
                 />
               </div>
             );
@@ -195,21 +146,27 @@ const Dashboard = ({ articles, services }) => {
       </section>
 
       <section className="about">
-        <Heading titleText={"Over All Mobiel Cars"} align={"left"} />
-        {articles.data.map((content, index) => {
+        <Heading titleText={"Recente artikelen op onze Blog"} align={"left"} />
+        {lastThreeArticles.map((content, index) => {
           return (
             <Article
               uuid={content.id}
               title={content.attributes.title}
               text={content.attributes.text}
               hasLink={content.attributes.hasLink}
-              linkHref={content.attributes.linkHref}
+              linkHref={`blog/post/${content.id}`}
               linkText={content.attributes.linkText}
               image={`http://localhost:1337${content.attributes.image.data.attributes.url}`}
               index={index}
+              createdAt={content.attributes.createdAt}
             />
           );
         })}
+        <div className="section-link d-flex justify-content-center">
+          <Link className="btn btn-primary" href="/blog">
+            Bekijk alle artikelen
+          </Link>
+        </div>
       </section>
     </Layout>
   );
@@ -217,12 +174,20 @@ const Dashboard = ({ articles, services }) => {
 
 export async function getStaticProps() {
   const articlesRes = fetch("http://localhost:1337/api/articles?populate=*");
+  const promotionCardsRes = fetch(
+    "http://localhost:1337/api/promotions?populate=*"
+  );
   const servicesRes = fetch("http://localhost:1337/api/services");
-  const responses = await Promise.all([articlesRes, servicesRes]);
+  const responses = await Promise.all([
+    articlesRes,
+    servicesRes,
+    promotionCardsRes,
+  ]);
   return {
     props: {
       articles: await responses[0].json(),
       services: await responses[1].json(),
+      promotions: await responses[2].json(),
     },
   };
 }

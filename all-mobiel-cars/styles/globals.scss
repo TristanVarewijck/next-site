@@ -82,6 +82,7 @@
 :root{
   --brand-color-white: #fff;
   --brand-color-gray: #FCFCFC;
+  --brand-color-darkGray: #eeeeee;
   --brand-color-black: #272727;
   --brand-color-red: #FF2B2A;
   --brand-font-style: "Uni Sans", sans-serif;
@@ -102,6 +103,15 @@ h1{
 
 section{
   margin-bottom: 150px;
+}
+
+a{
+  text-decoration: none;
+  color: var(--brand-color-black);
+
+  &:hover{
+    color: var(--brand-color-red);
+  }
 }
 
 .btn{

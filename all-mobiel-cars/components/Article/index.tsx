@@ -2,6 +2,7 @@ import styles from "./article.module.scss";
 import Image from "next/image";
 import TextBlock from "./TextBlock";
 import { articleProps } from "../../types";
+import { getDateFormatCreatedAt } from "../Utils/dates";
 
 const Article = ({
   image,
@@ -12,10 +13,11 @@ const Article = ({
   linkHref,
   linkText,
   index,
+  createdAt,
 }: articleProps) => {
   return (
     <article
-      className="row gx-5 mb-5"
+      className={`row gx-5 mb-5 ${styles.container}`}
       key={uuid}
       style={
         index % 2 == 0
@@ -24,6 +26,7 @@ const Article = ({
       }
     >
       <div className="col-md">
+        <small>{getDateFormatCreatedAt(createdAt)}</small>
         <TextBlock
           uuid={uuid}
           title={title}

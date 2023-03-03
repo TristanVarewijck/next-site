@@ -15,7 +15,6 @@ export interface promotionCardProps {
   }
   export interface serviceBlockProps {
     uuid: string;
-    icon: JSX.Element;
     title: string;
     href: string;
   }
@@ -32,4 +31,5 @@ export interface promotionCardProps {
   export interface articleProps extends textBlockProps {
     image: string;
     index?: number
+    createdAt: string;
   }

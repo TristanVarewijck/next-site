@@ -173,11 +173,15 @@ const Dashboard = ({ articles, services }) => {
 };
 
 export async function getStaticProps() {
-  const articlesRes = fetch("http://localhost:1337/api/articles?populate=*");
-  const promotionCardsRes = fetch(
-    "http://localhost:1337/api/promotions?populate=*"
+  const articlesRes = fetch(
+    `http://localhost:${process.env.CMS_PORT}/api/articles?populate=*`
   );
-  const servicesRes = fetch("http://localhost:1337/api/services");
+  const promotionCardsRes = fetch(
+    `http://localhost:${process.env.CMS_PORT}/api/promotions?populate=*`
+  );
+  const servicesRes = fetch(
+    `http://localhost:${process.env.CMS_PORT}/api/services`
+  );
   const responses = await Promise.all([
     articlesRes,
     servicesRes,

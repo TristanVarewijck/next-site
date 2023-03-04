@@ -48,7 +48,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const articlesRes = fetch(
-    `http://localhost:1337/api/articles/${params.pid}?populate=*`
+    `http://localhost:${process.env.CMS_PORT}/api/articles/${params.pid}?populate=*`
   );
   const response = await articlesRes;
 

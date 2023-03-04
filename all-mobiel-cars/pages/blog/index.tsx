@@ -34,7 +34,9 @@ const Blog = ({ articles }) => {
 };
 
 export async function getStaticProps() {
-  const articlesRes = fetch("http://localhost:1337/api/articles?populate=*");
+  const articlesRes = fetch(
+    `http://localhost:${process.env.CMS_PORT}/api/articles?populate=*`
+  );
   const response = await articlesRes;
 
   return {

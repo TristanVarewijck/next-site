@@ -5,15 +5,15 @@ import Heading from "../../../components/Heading";
 import Layout from "../../../components/Layout";
 import styles from "./blogPost.module.scss";
 
-const blogPost = ({ article }) => {
+const blogPost = ({ post }) => {
   const router = useRouter();
   const { pid } = router.query;
-  const { attributes } = article.data;
+  const { attributes } = post.data;
 
   return (
     <Layout>
       <Head>
-        <title>{`artikel: ${pid}`}</title>
+        <title>{`Post-${pid}`}</title>
       </Head>
 
       <nav aria-label="breadcrumb">
@@ -22,7 +22,7 @@ const blogPost = ({ article }) => {
             <Link href="/blog">Blog</Link>
           </li>
           <li className="breadcrumb-item active" aria-current="page">
-            Artikel
+            {attributes.title}
           </li>
         </ol>
       </nav>
@@ -56,7 +56,7 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
-      article: await response.json(),
+      post: await response.json(),
     },
   };
 };

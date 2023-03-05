@@ -21,9 +21,6 @@ const Dashboard = ({ articles, services }) => {
       imgAlt: "test",
       title: "Goedkope banden om te wisselen",
       subtitle: null,
-      hasLink: true,
-      linkText: "Zie aanbod",
-      linkHref: "#",
     },
     {
       uuid: "card2",
@@ -31,9 +28,6 @@ const Dashboard = ({ articles, services }) => {
       imgAlt: "test",
       title: "Nieuwe en tweedehands Auto’s verkoop",
       subtitle: null,
-      hasLink: true,
-      linkText: "Zie aanbod",
-      linkHref: "#",
     },
     {
       uuid: "card3",
@@ -41,9 +35,6 @@ const Dashboard = ({ articles, services }) => {
       imgAlt: "test",
       title: "Snelle analyses met uitstekent onderhoud",
       subtitle: null,
-      hasLink: true,
-      linkText: "Zie aanbod",
-      linkHref: "#",
     },
   ];
 
@@ -84,9 +75,6 @@ const Dashboard = ({ articles, services }) => {
                   img={content.img}
                   imgAlt={content.imgAlt}
                   title={content.title}
-                  hasLink={true}
-                  linkHref={content.linkHref}
-                  linkText={content.linkText}
                 />
               </div>
             );
@@ -162,7 +150,7 @@ const Dashboard = ({ articles, services }) => {
               hasLink={content.attributes.hasLink}
               linkHref={`blog/post/${content.id}`}
               linkText={content.attributes.linkText}
-              image={`http://localhost:1337${content.attributes.image.data.attributes.url}`}
+              image={`http://localhost:${process.env.CMS_PORT}${content.attributes.image.data.attributes.url}`}
               index={index}
               createdAt={content.attributes.createdAt}
             />

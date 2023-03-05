@@ -7,9 +7,6 @@ const PromotionCard = ({
   imgAlt,
   title,
   subtitle,
-  hasLink,
-  linkText,
-  linkHref,
 }: promotionCardProps) => {
   return (
     <div className={`card ${styles.cardStyle}`} key={uuid}>
@@ -20,12 +17,6 @@ const PromotionCard = ({
       <div className={`card-body ${styles.cardBodyStyle}`}>
         <h4 className="card-title">{title}</h4>
         {subtitle && <p className="card-text">{subtitle}</p>}
-
-        {hasLink && (
-          <a href={linkHref} className="btn btn-primary">
-            {linkText}
-          </a>
-        )}
       </div>
     </div>
   );

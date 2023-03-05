@@ -11,7 +11,6 @@ const Services = ({ services }) => {
       <Head>
         <title>Services</title>
       </Head>
-
       <Heading
         size={"big"}
         titleText={"Services"}

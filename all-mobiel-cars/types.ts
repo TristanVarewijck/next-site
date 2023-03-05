@@ -10,9 +10,6 @@ export interface promotionCardProps {
     imgAlt: string;
     title: string;
     subtitle?: string;
-    hasLink?: boolean;
-    linkText?: string;
-    linkHref?: string;
   }
   export interface serviceBlockProps {
     uuid: string;

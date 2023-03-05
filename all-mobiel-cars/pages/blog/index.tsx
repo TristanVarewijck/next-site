@@ -10,6 +10,7 @@ const Blog = ({ articles }) => {
         <title>Blog</title>
       </Head>
       <Heading
+        size={"big"}
         titleText={"Blog"}
         subtitleText={"Leer over ons op onze blog pagina!"}
         align={"left"}
@@ -33,7 +34,7 @@ const Blog = ({ articles }) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const articlesRes = fetch(
     `http://localhost:${process.env.CMS_PORT}/api/articles?populate=*`
   );
@@ -44,6 +45,6 @@ export async function getStaticProps() {
       articles: await response.json(),
     },
   };
-}
+};
 
 export default Blog;

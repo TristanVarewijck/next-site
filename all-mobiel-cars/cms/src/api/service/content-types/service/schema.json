@@ -4,7 +4,7 @@
   "info": {
     "singularName": "service",
     "pluralName": "services",
-    "displayName": "Service",
+    "displayName": "ServiceCategories",
     "description": ""
   },
   "options": {
@@ -16,6 +16,12 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "service_products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "service_category"
     }
   }
 }

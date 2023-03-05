@@ -1,4 +1,5 @@
 export interface headingProps {
+  size: 'small' | "medium" | "big";
   titleText: string;
   subtitleText?: string | null;
   align: "center" | "left" | "right";

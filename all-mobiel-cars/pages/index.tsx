@@ -57,6 +57,7 @@ const Dashboard = ({ articles, services }) => {
         <div className="row">
           <div className="col-md">
             <Heading
+              size={"big"}
               titleText={
                 "All-in, All Mobile Cars is de enige garage die je nodig hebt"
               }
@@ -95,6 +96,7 @@ const Dashboard = ({ articles, services }) => {
 
       <section className="services">
         <Heading
+          size={"big"}
           titleText={"Onze diensten"}
           subtitleText={
             "Wij hebben een ruim assortiment aan diensten die u kunnen helpen zie hier beneden een overzicht van onze diensten"
@@ -103,20 +105,19 @@ const Dashboard = ({ articles, services }) => {
         />
         <div className="row gx-5 mb-5">
           {services.data.map((content) => {
-            console.log(content.id);
             return (
               <div className="col-md" key={content.uuid}>
                 <ServiceBlock
                   uuid={content.id}
                   title={content.attributes.title}
-                  href={`services/${content.id}`}
+                  href={`services/#${content.attributes.title}`}
                 />
               </div>
             );
           })}
         </div>
         <div className="section-link d-flex justify-content-center">
-          <Link className="btn btn-primary" href="#">
+          <Link className="btn btn-primary" href="/services">
             Diensten
           </Link>
         </div>
@@ -124,6 +125,7 @@ const Dashboard = ({ articles, services }) => {
 
       <section className="appointment">
         <Heading
+          size={"big"}
           titleText={"Eenvoudig een afspraak inplannen"}
           subtitleText={
             "Snel en gemakkelijk: selecteer de gewenste dienst en plan uw afspraak!"
@@ -146,7 +148,11 @@ const Dashboard = ({ articles, services }) => {
       </section>
 
       <section className="about">
-        <Heading titleText={"Recente artikelen op onze Blog"} align={"left"} />
+        <Heading
+          titleText={"Recente artikelen op onze Blog"}
+          align={"left"}
+          size={"big"}
+        />
         {lastThreeArticles.map((content, index) => {
           return (
             <Article
@@ -172,7 +178,7 @@ const Dashboard = ({ articles, services }) => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const articlesRes = fetch(
     `http://localhost:${process.env.CMS_PORT}/api/articles?populate=*`
   );
@@ -194,6 +200,6 @@ export async function getStaticProps() {
       promotions: await responses[2].json(),
     },
   };
-}
+};
 
 export default Dashboard;

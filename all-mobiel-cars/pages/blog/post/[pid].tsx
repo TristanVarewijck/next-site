@@ -27,7 +27,7 @@ const blogPost = ({ article }) => {
         </ol>
       </nav>
 
-      <Heading titleText={attributes.title} align={"center"} />
+      <Heading titleText={attributes.title} align={"center"} size={"big"} />
       <section className={styles.contentContainer}>
         <p>{attributes.text}</p>
       </section>
@@ -35,8 +35,10 @@ const blogPost = ({ article }) => {
   );
 };
 
-export async function getStaticPaths() {
-  const articlesRes = fetch("http://localhost:1337/api/articles?populate=*");
+export const getStaticPaths = async () => {
+  const articlesRes = fetch(
+    `http://localhost:${process.env.CMS_PORT}/api/articles?populate=*`
+  );
   const response = await articlesRes;
   const responseJson = await response.json();
   const paths = responseJson.data.map((content, _index) => ({
@@ -44,9 +46,9 @@ export async function getStaticPaths() {
   }));
 
   return { paths, fallback: "blocking" };
-}
+};
 
-export async function getStaticProps({ params }) {
+export const getStaticProps = async ({ params }) => {
   const articlesRes = fetch(
     `http://localhost:${process.env.CMS_PORT}/api/articles/${params.pid}?populate=*`
   );
@@ -57,5 +59,5 @@ export async function getStaticProps({ params }) {
       article: await response.json(),
     },
   };
-}
+};
 export default blogPost;

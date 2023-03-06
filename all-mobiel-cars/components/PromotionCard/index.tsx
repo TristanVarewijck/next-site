@@ -1,5 +1,6 @@
 import styles from "./promotionCard.module.scss";
 import { promotionCardProps } from "../../types";
+import Link from "next/link";
 
 const PromotionCard = ({
   uuid,
@@ -7,6 +8,7 @@ const PromotionCard = ({
   imgAlt,
   title,
   subtitle,
+  url,
 }: promotionCardProps) => {
   return (
     <div className={`card ${styles.cardStyle}`} key={uuid}>
@@ -14,10 +16,12 @@ const PromotionCard = ({
         <img src={img} alt={imgAlt} />
       </div>
 
-      <div className={`card-body ${styles.cardBodyStyle}`}>
-        <h4 className="card-title">{title}</h4>
-        {subtitle && <p className="card-text">{subtitle}</p>}
-      </div>
+      <Link href={url}>
+        <div className={`card-body ${styles.cardBodyStyle}`}>
+          <h4 className="card-title">{title}</h4>
+          {subtitle && <p className="card-text">{subtitle}</p>}
+        </div>
+      </Link>
     </div>
   );
 };

@@ -3,40 +3,21 @@ import Layout from "../components/Layout";
 import PhoneNumber from "../components/PhoneNumber";
 import Heading from "../components/Heading";
 import PromotionCard from "../components/PromotionCard";
-import { promotionCardProps } from "../types";
 import ServiceBlock from "../components/ServiceBlock";
 import Article from "../components/Article";
 import Link from "next/link";
 import Image from "next/image";
 
-const Dashboard = ({ articles, services }) => {
-  const lastThreeArticles = articles.data.slice(
-    Math.max(articles.data.length - 3, 0)
-  );
+const Dashboard = ({ articles, services, promotions }) => {
+  const getLastThreeItems = (items) => {
+    const lastThreeItems = items.data.slice(Math.max(items.data.length - 3, 0));
+    return lastThreeItems;
+  };
 
-  const promotionCardsContent: promotionCardProps[] = [
-    {
-      uuid: "card1",
-      img: "/images/promotionCards/image-1.png",
-      imgAlt: "test",
-      title: "Goedkope banden om te wisselen",
-      subtitle: null,
-    },
-    {
-      uuid: "card2",
-      img: "/images/promotionCards/image-2.png",
-      imgAlt: "test",
-      title: "Nieuwe en tweedehands Auto’s verkoop",
-      subtitle: null,
-    },
-    {
-      uuid: "card3",
-      img: "/images/promotionCards/image-3.png",
-      imgAlt: "test",
-      title: "Snelle analyses met uitstekent onderhoud",
-      subtitle: null,
-    },
-  ];
+  const lastThreeArticles = getLastThreeItems(articles);
+  const lastThreePromotions = getLastThreeItems(promotions);
+
+  console.log(lastThreePromotions);
 
   return (
     <Layout>
@@ -64,17 +45,23 @@ const Dashboard = ({ articles, services }) => {
         </div>
 
         <div className="row gx-5 d-flex justify-content-center">
-          {promotionCardsContent.map((content) => {
+          {lastThreePromotions.map((content) => {
             return (
               <div
                 key={content.uuid}
                 className="col-md d-flex justify-content-center"
               >
                 <PromotionCard
-                  uuid={content.uuid}
-                  img={content.img}
-                  imgAlt={content.imgAlt}
-                  title={content.title}
+                  uuid={content.id}
+                  img={`http://localhost:${process.env.CMS_PORT}${content.attributes.cover.data.attributes.url}`}
+                  imgAlt={"promotion-cover"}
+                  title={content.attributes.title}
+                  url={`/services/#${
+                    content.attributes.service_category.data
+                      ? content.attributes.service_category.data.attributes
+                          .title
+                      : "#"
+                  }`}
                 />
               </div>
             );

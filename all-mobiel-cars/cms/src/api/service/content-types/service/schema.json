@@ -22,6 +22,12 @@
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "service_category"
+    },
+    "promotion": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::promotion.promotion",
+      "mappedBy": "service_category"
     }
   }
 }

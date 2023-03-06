@@ -1,0 +1,15 @@
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--brand-color-red);
+    border-top: 1px solid var(--brand-color-red);
+    padding: 5px 0px 5px 0px;
+    p{
+        margin: 0px; padding:0px;
+        font-weight: 600;
+        color: var(--brand-color-red);
+    }
+}

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "promotion",
     "pluralName": "promotions",
-    "displayName": "Promotion"
+    "displayName": "Promotion",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,12 +21,18 @@
       "required": true
     },
     "cover": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "service_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::service.service",
+      "inversedBy": "promotion"
     }
   }
 }

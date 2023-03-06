@@ -2,6 +2,8 @@ import Head from "next/head";
 import Layout from "../../components/Layout";
 import Heading from "../../components/Heading";
 import Link from "next/link";
+import PromotionCardSmall from "../../components/PromotionCardSmall";
+import ProductPreviewCard from "../../components/ProductPreviewCard";
 
 const Services = ({ services }) => {
   const servicesArr = services.data;
@@ -29,24 +31,25 @@ const Services = ({ services }) => {
               align={"center"}
             />
 
-            {service.attributes.service_products.data.map((product) => {
-              return (
-                <div className="card w-50">
-                  <div className="card-body">
-                    <h5 className="card-title">{product.attributes.title}</h5>
-                    <p className="card-text">
-                      {product.attributes.shortDescription}
-                    </p>
-                    <Link
-                      href={`services/${service.id}`}
-                      className="btn btn-primary"
-                    >
-                      Lees meer
-                    </Link>
+            {service.attributes.promotion.data && (
+              <PromotionCardSmall
+                title={service.attributes.promotion.data.attributes.title}
+              />
+            )}
+
+            <div className="row gx-5">
+              {service.attributes.service_products.data.map((product) => {
+                return (
+                  <div key={product.id} className="col-md">
+                    <ProductPreviewCard
+                      title={product.attributes.title}
+                      shortDescription={product.attributes.shortDescription}
+                      productId={product.id}
+                    />
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </section>
         );
       })}

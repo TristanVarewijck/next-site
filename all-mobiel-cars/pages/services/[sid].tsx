@@ -6,6 +6,7 @@ import Layout from "../../components/Layout";
 const Service = ({ service }) => {
   const router = useRouter();
   const { sid } = router.query;
+
   return (
     <Layout>
       <Head>

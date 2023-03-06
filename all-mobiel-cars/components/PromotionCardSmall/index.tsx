@@ -8,7 +8,7 @@ const PromotionCardSmall = ({ title }: promotionCardSmallProps) => {
   return (
     <div className={styles.container}>
       <p>
-        Promotion: <span>{title}</span>
+        Promotie: <span>{title}</span>
       </p>
     </div>
   );

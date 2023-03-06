@@ -1,6 +1,5 @@
 toDoList:
 
-1 create front end for all new pages
-2 create more data
+5 - typescript modals/typing check
 6 - create more data
 7 - deploy

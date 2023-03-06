@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Heading from "../../components/Heading";
 import Layout from "../../components/Layout";
+import ReadOnlyText from "../../components/ReadOnlyText";
 
 const Service = ({ service }) => {
   const router = useRouter();
@@ -23,6 +25,19 @@ const Service = ({ service }) => {
           </li>
         </ol>
       </nav>
+
+      <Heading
+        titleText={service.data.attributes.title}
+        align={"center"}
+        size={"big"}
+      />
+      <ReadOnlyText text={service.data.attributes.content} />
+
+      <div className="section-link d-flex justify-content-center mb-5">
+        <Link className="btn btn-primary" href="/contact">
+          Afspraak maken voor {service.data.attributes.title}
+        </Link>
+      </div>
     </Layout>
   );
 };

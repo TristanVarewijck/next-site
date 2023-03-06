@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Heading from "../../../components/Heading";
 import Layout from "../../../components/Layout";
-import styles from "./blogPost.module.scss";
+import ReadOnlyText from "../../../components/ReadOnlyText";
 
 const blogPost = ({ post }) => {
   const router = useRouter();
@@ -15,7 +15,6 @@ const blogPost = ({ post }) => {
       <Head>
         <title>{`Post-${pid}`}</title>
       </Head>
-
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -28,9 +27,10 @@ const blogPost = ({ post }) => {
       </nav>
 
       <Heading titleText={attributes.title} align={"center"} size={"big"} />
-      <section className={styles.contentContainer}>
-        <p>{attributes.text}</p>
-      </section>
+      <ReadOnlyText
+        text={attributes.text}
+        imageUrl={`http://localhost:${process.env.CMS_PORT}${attributes.image.data.attributes.url}`}
+      />
     </Layout>
   );
 };

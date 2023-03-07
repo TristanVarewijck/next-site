@@ -23,7 +23,7 @@ const Blog = ({ articles }) => {
             text={content.attributes.text}
             hasLink={content.attributes.hasLink}
             linkHref={`blog/post/${content.id}`}
-            linkText={content.attributes.linkText}
+            linkText={"Lees meer"}
             image={`http://localhost:${process.env.CMS_PORT}${content.attributes.image.data.attributes.url}`}
             index={index}
             createdAt={content.attributes.createdAt}

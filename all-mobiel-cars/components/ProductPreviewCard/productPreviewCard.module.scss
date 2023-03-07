@@ -17,6 +17,10 @@ $cardShadow: 0px 8px 41px rgba(192, 192, 192, 0.15);
         margin:0px
     }
 
+    h4{
+        font-weight: 600 !important;
+    }
+
     &:hover h4{
         text-decoration: underline;
     }

@@ -17,8 +17,6 @@ const Dashboard = ({ articles, services, promotions }) => {
   const lastThreeArticles = getLastThreeItems(articles);
   const lastThreePromotions = getLastThreeItems(promotions);
 
-  console.log(lastThreePromotions);
-
   return (
     <Layout>
       <Head>
@@ -57,9 +55,8 @@ const Dashboard = ({ articles, services, promotions }) => {
                   imgAlt={"promotion-cover"}
                   title={content.attributes.title}
                   url={`/services/#${
-                    content.attributes.service_category.data
-                      ? content.attributes.service_category.data.attributes
-                          .title
+                    content.attributes.service.data
+                      ? content.attributes.service.data.attributes.title
                       : "#"
                   }`}
                 />
@@ -136,7 +133,7 @@ const Dashboard = ({ articles, services, promotions }) => {
               text={content.attributes.text}
               hasLink={content.attributes.hasLink}
               linkHref={`blog/post/${content.id}`}
-              linkText={content.attributes.linkText}
+              linkText={"Lees meer"}
               image={`http://localhost:${process.env.CMS_PORT}${content.attributes.image.data.attributes.url}`}
               index={index}
               createdAt={content.attributes.createdAt}

@@ -18,6 +18,12 @@ export interface promotionCardProps {
     href: string;
   }
 
+  export interface productPreviewCardProps {
+    title: string;
+    shortDescription: string;
+    productId: number;
+  }
+
   export interface textBlockProps {
     uuid: string;
     title: string;

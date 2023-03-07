@@ -25,13 +25,6 @@
       "type": "boolean",
       "required": true
     },
-    "linkText": {
-      "type": "string"
-    },
-    "linkHref": {
-      "type": "string",
-      "unique": true
-    },
     "image": {
       "type": "media",
       "multiple": false,

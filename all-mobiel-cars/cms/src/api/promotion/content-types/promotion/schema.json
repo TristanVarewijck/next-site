@@ -28,7 +28,7 @@
         "images"
       ]
     },
-    "service_category": {
+    "service": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::service.service",

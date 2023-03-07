@@ -25,11 +25,11 @@
       "type": "text",
       "required": true
     },
-    "service_category": {
+    "service": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::service.service",
-      "inversedBy": "service_products"
+      "inversedBy": "products"
     }
   }
 }

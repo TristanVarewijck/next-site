@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Layout from "../../components/Layout";
 import Heading from "../../components/Heading";
-import Link from "next/link";
 import PromotionCardSmall from "../../components/PromotionCardSmall";
 import ProductPreviewCard from "../../components/ProductPreviewCard";
 
@@ -37,8 +36,8 @@ const Services = ({ services }) => {
               />
             )}
 
-            <div className="row gx-5">
-              {service.attributes.service_products.data.map((product) => {
+            <div className="row gx-5 gy-2">
+              {service.attributes.products.data.map((product) => {
                 return (
                   <div key={product.id} className="col-md">
                     <ProductPreviewCard

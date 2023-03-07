@@ -1,12 +1,7 @@
 import Link from "next/link";
 import styles from "./productPreviewCard.module.scss";
 import Image from "next/image";
-
-interface productPreviewCardProps {
-  title: string;
-  shortDescription: string;
-  productId: number;
-}
+import { productPreviewCardProps } from "../../types";
 
 const ProductPreviewCard = ({
   title,

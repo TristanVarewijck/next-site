@@ -4,7 +4,7 @@
   "info": {
     "singularName": "service",
     "pluralName": "services",
-    "displayName": "ServiceCategories",
+    "displayName": "Service",
     "description": ""
   },
   "options": {
@@ -13,21 +13,19 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string",
-      "required": true,
-      "unique": true
+      "type": "string"
     },
-    "service_products": {
+    "products": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product",
-      "mappedBy": "service_category"
+      "mappedBy": "service"
     },
     "promotion": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::promotion.promotion",
-      "mappedBy": "service_category"
+      "mappedBy": "service"
     }
   }
 }
